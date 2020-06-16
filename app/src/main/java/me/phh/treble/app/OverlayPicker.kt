@@ -55,6 +55,14 @@ object OverlayPicker: EntryStartup {
         }
     }
 
+    fun handleRedmi(ctxt: Context) {
+        if(vendorFp == null) return
+
+        if(vendorFp.matches(Regex(".*edmi/picasso.*"))) {
+            setOverlayEnabled("me.phh.treble.overlay.redmi.k305g.systemui", true)
+        }
+    }
+
     override fun startup(ctxt: Context) {
         om = IOverlayManager.Stub.asInterface(
                 ServiceManager.getService("overlay"))
@@ -63,6 +71,7 @@ object OverlayPicker: EntryStartup {
         handleNokia(ctxt)
         handleSamsung(ctxt)
         handleXiaomi(ctxt)
+        handleRedmi(ctxt)
 
         setOverlayEnabled("me.phh.treble.overlay.systemui.falselocks", true)
     }
