@@ -24,7 +24,7 @@ jobs:
 
     # Runs a single command using the runners shell
     - name: Upstream
-      run: git fetch https://github.com/phhusson/treble_app master && git merge FETCH_HEAD --no-edit
+      run: git fetch https://github.com/phhusson/treble_app master && git merge FETCH_HEAD --allow-unrelated-histories --no-edit
 
     # Runs a set of commands using the runners shell
     - name: Build
